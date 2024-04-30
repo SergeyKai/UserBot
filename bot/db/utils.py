@@ -11,7 +11,7 @@ class SessionFactory:
     CONN_URL = DBConfig.conn_url()
 
     def __init__(self, ):
-        self.engine = create_async_engine(self.CONN_URL, echo=True)
+        self.engine = create_async_engine(self.CONN_URL, echo=DBConfig.ECHO)
         self.session = async_sessionmaker(
             bind=self.engine,
             autoflush=False,
